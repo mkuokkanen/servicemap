@@ -25,7 +25,7 @@ func StartHttpServer(c *configuration.Config, m *model.Model) {
 	mux.HandleFunc("GET /", server.rootPath)
 	mux.HandleFunc("GET /index.html", server.renderIndex)
 	mux.HandleFunc("POST /reload", server.reloadData)
-	mux.Handle("GET /static/", pathStatic(c.StaticDir))
+	mux.HandleFunc("GET /static/", staticFileHandler(c.StaticDir))
 	// server
 	log.Printf("Starting server at port %s", c.HttpPort)
 	logMux := LogMiddleware(mux)

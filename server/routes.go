@@ -33,7 +33,8 @@ func (s *Server) reloadData(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func pathStatic(staticDir string) http.Handler {
+func staticFileHandler(staticDir string) http.HandlerFunc {
 	fs := http.FileServer(http.Dir(staticDir))
-	return http.StripPrefix("/static", fs)
+	handler := http.StripPrefix("/static", fs)
+	return handler.ServeHTTP
 }
