@@ -1,10 +1,16 @@
 package server
 
 import (
-	"fmt"
+	"log"
 	"net/http"
+	"time"
 )
 
-func accessLog(r *http.Request, funcName string) {
-	fmt.Println("OP", r.Method, r.RequestURI, r.Proto, funcName)
+func LogMiddleware(next http.Handler) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		start := time.Now()
+		next.ServeHTTP(w, r)
+		duration := time.Now().Sub(start)
+		log.Printf("Request %s %s %s took %v", r.Method, r.URL.Path, r.Proto, duration)
+	}
 }

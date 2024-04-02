@@ -27,7 +27,8 @@ func StartHttpServer(c *configuration.Config, m *model.Model) {
 	mux.HandleFunc("POST /reload", server.reloadData)
 	mux.Handle("GET /static/", pathStatic(c.StaticDir))
 	// server
-	err := http.ListenAndServe(":"+c.HttpPort, mux)
+	logMux := LogMiddleware(mux)
+	err := http.ListenAndServe(":"+c.HttpPort, logMux)
 	if errors.Is(err, http.ErrServerClosed) {
 		fmt.Printf("server closed\n")
 	} else if err != nil {

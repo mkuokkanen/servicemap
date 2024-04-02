@@ -1,12 +1,10 @@
 package server
 
 import (
-	"fmt"
 	"net/http"
 )
 
 func (s *Server) rootPath(w http.ResponseWriter, r *http.Request) {
-	accessLog(r, "rootPath")
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 		return
@@ -15,7 +13,6 @@ func (s *Server) rootPath(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) renderIndex(w http.ResponseWriter, r *http.Request) {
-	accessLog(r, "renderIndex")
 	t, d := s.model.TemplateAndData()
 	err := t.ExecuteTemplate(w, "main.gohtml", d)
 	if err != nil {
@@ -24,7 +21,6 @@ func (s *Server) renderIndex(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) reloadData(w http.ResponseWriter, r *http.Request) {
-	accessLog(r, "reloadData")
 	err := s.model.Load()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -38,7 +34,6 @@ func (s *Server) reloadData(w http.ResponseWriter, r *http.Request) {
 }
 
 func pathStatic(staticDir string) http.Handler {
-	fmt.Println("pathStatic")
 	fs := http.FileServer(http.Dir(staticDir))
 	return http.StripPrefix("/static", fs)
 }
