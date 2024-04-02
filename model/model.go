@@ -1,9 +1,9 @@
 package model
 
 import (
-	"fmt"
 	"github.com/mkuokkanen/servicemap/configuration"
 	"html/template"
+	"log"
 	"sync"
 )
 
@@ -15,7 +15,7 @@ type Model struct {
 }
 
 func NewModel(config *configuration.Config) (*Model, error) {
-	fmt.Println("Creating model")
+	log.Printf("Creating model")
 	m := &Model{
 		config: config,
 	}

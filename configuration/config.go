@@ -1,7 +1,7 @@
 package configuration
 
 import (
-	"fmt"
+	"log"
 	"os"
 )
 
@@ -32,7 +32,7 @@ func getEnvOrDefault(key, fallback string) string {
 }
 
 func NewConfig() *Config {
-	fmt.Println("Creating config")
+	log.Printf("Creating config")
 	return &Config{
 		HttpPort:    getEnvOrDefault(envHttpPort, defaultHttpPort),
 		StaticDir:   getEnvOrDefault(envStaticDir, defaultStaticDir),

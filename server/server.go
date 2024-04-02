@@ -2,9 +2,9 @@ package server
 
 import (
 	"errors"
-	"fmt"
 	"github.com/mkuokkanen/servicemap/configuration"
 	"github.com/mkuokkanen/servicemap/model"
+	"log"
 	"net/http"
 	"os"
 )
@@ -27,12 +27,13 @@ func StartHttpServer(c *configuration.Config, m *model.Model) {
 	mux.HandleFunc("POST /reload", server.reloadData)
 	mux.Handle("GET /static/", pathStatic(c.StaticDir))
 	// server
+	log.Printf("Starting server at port %s", c.HttpPort)
 	logMux := LogMiddleware(mux)
 	err := http.ListenAndServe(":"+c.HttpPort, logMux)
 	if errors.Is(err, http.ErrServerClosed) {
-		fmt.Printf("server closed\n")
+		log.Printf("server closed")
 	} else if err != nil {
-		fmt.Printf("error starting server: %s\n", err)
+		log.Printf("error starting server: %s", err)
 		os.Exit(1)
 	}
 }

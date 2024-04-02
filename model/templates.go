@@ -1,8 +1,8 @@
 package model
 
 import (
-	"fmt"
 	"html/template"
+	"log"
 	"path/filepath"
 )
 
@@ -15,7 +15,7 @@ func loadTemplates(templateDir string) (*template.Template, error) {
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println("Reading template from path", p)
+	log.Printf("Reading template from path %s", p)
 	var templates = template.Must(template.ParseFiles(p))
 	return templates, nil
 }

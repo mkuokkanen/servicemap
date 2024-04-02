@@ -1,8 +1,8 @@
 package model
 
 import (
-	"fmt"
 	"gopkg.in/yaml.v3"
+	"log"
 	"os"
 	"path/filepath"
 )
@@ -57,7 +57,7 @@ func readFile(root string, filename string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println("Reading data from path", p)
+	log.Printf("Reading data from path %s", p)
 	d, err := os.ReadFile(p)
 	if err != nil {
 		return nil, err
