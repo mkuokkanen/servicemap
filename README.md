@@ -72,3 +72,13 @@ Generate code with following command:
     ~/go/bin/pkl-gen-go pkl/templates/Data.pkl --base-path github.com/mkuokkanen/servicemap
 
 Generated code is in path `pkl/gen/` and is committed to git.
+
+## Docker image
+
+Build docker image
+
+    docker build -t servicemap .
+
+Run image build
+
+    docker run -p9090:9090 servicemap:latest
