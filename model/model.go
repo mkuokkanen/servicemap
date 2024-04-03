@@ -1,7 +1,9 @@
 package model
 
 import (
+	"context"
 	"github.com/mkuokkanen/servicemap/configuration"
+	"github.com/mkuokkanen/servicemap/pkl/gen"
 	"html/template"
 	"log"
 	"sync"
@@ -11,7 +13,7 @@ type Model struct {
 	config    *configuration.Config
 	rwm       sync.RWMutex
 	templates *template.Template
-	data      *Data
+	data      *gen.Data
 }
 
 func NewModel(config *configuration.Config) (*Model, error) {
@@ -30,7 +32,7 @@ func (m *Model) Load() error {
 	return m.loadResources()
 }
 
-func (m *Model) TemplateAndData() (*template.Template, *Data) {
+func (m *Model) TemplateAndData() (*template.Template, *gen.Data) {
 	// Verify that no writer has lock
 	m.rwm.RLock()
 	defer m.rwm.RUnlock()
@@ -44,7 +46,8 @@ func (m *Model) loadResources() error {
 		return err
 	}
 	// load data
-	d, err := loadData(m.config.DataDir)
+	log.Printf("Reading data from path %s", m.config.DataFile)
+	d, err := gen.LoadFromPath(context.Background(), m.config.DataFile)
 	if err != nil {
 		return err
 	}

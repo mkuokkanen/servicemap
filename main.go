@@ -18,5 +18,6 @@ func main() {
 		log.Printf("error building model: %s", err)
 		os.Exit(1)
 	}
+	// Server
 	server.StartHttpServer(c, m)
 }

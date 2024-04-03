@@ -1,0 +1,27 @@
+@go.Package { name = "github.com/mkuokkanen/servicemap/pkl/gen" }
+module Data
+import "package://pkg.pkl-lang.org/pkl-go/pkl.golang@0.6.0#/go.pkl"
+
+title: String
+env: String
+groups: Listing<Group>
+
+class Group {
+  name: String
+  sort: Int
+  cols: Int
+  services: Listing<Service>
+}
+
+class Service {
+  name: String
+  description: String
+  url: String
+  components: Listing<Component>
+}
+
+class Component {
+  name: String
+  description: String
+  url: String
+}

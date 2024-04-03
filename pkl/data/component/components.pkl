@@ -1,0 +1,77 @@
+import ".../templates/Data.pkl" as d
+
+component1 = new d.Component {
+  name = "Component 1"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}
+component2 = new d.Component {
+  name = "Component 2"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}
+component3 = new d.Component {
+  name = "Component 3"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}
+component4 = new d.Component {
+  name = "Component 4"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}
+component5 = new d.Component {
+  name = "Component 5"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}
+component6 = new d.Component {
+  name = "Component 6"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}
+component7 = new d.Component {
+  name = "Component 7"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}
+component8 = new d.Component {
+  name = "Component 8"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}
+component9 = new d.Component {
+  name = "Component 9"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}
+component10 = new d.Component {
+  name = "Component 10"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}
+component11 = new d.Component {
+  name = "Component 11"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}
+component12 = new d.Component {
+  name = "Component 12"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}
+component13 = new d.Component {
+  name = "Component 13"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}
+component14 = new d.Component {
+  name = "Component 14"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}
+component15 = new d.Component {
+  name = "Component 15"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+}

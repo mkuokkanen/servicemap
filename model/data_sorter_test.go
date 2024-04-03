@@ -2,41 +2,42 @@ package model
 
 import (
 	"fmt"
+	"github.com/mkuokkanen/servicemap/pkl/gen"
 	"testing"
 )
 
 func TestSortData(t *testing.T) {
-	d := Data{
-		Groups: []GroupData{
+	d := gen.Data{
+		Groups: []*gen.Group{
 			{
 				Name: "G1",
 				Sort: 1,
-				Services: []ServiceData{
+				Services: []*gen.Service{
 					{
 						Name: "G1 S1",
-						Components: []ComponentData{
+						Components: []*gen.Component{
 							{Name: "G1 S1 C1"},
 							{Name: "G1 S1 C0"},
 						}},
 					{
 						Name: "G1 S0",
-						Components: []ComponentData{
+						Components: []*gen.Component{
 							{Name: "G1 S0 C1"},
 							{Name: "G1 S0 C0"},
 						}}}},
 			{
 				Name: "G0",
 				Sort: 0,
-				Services: []ServiceData{
+				Services: []*gen.Service{
 					{
 						Name: "G0 S1",
-						Components: []ComponentData{
+						Components: []*gen.Component{
 							{Name: "G0 S1 C1"},
 							{Name: "G0 S1 C0"},
 						}},
 					{
 						Name: "G0 S0",
-						Components: []ComponentData{
+						Components: []*gen.Component{
 							{Name: "G0 S0 C1"},
 							{Name: "G0 S0 C0"},
 						}}}},

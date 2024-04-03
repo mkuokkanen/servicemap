@@ -7,8 +7,8 @@ import (
 
 func TestNewConfig(t *testing.T) {
 	var config = NewConfig()
-	if config.DataDir == "" {
-		t.Fatalf(`DataDir was empty instead of default`)
+	if config.DataFile == "" {
+		t.Fatalf(`DataFile was empty instead of default`)
 	}
 	if config.TemplateDir == "" {
 		t.Fatalf(`TemplateDir was empty instead of default`)
@@ -25,7 +25,7 @@ func TestNewConfigWithEnvs(t *testing.T) {
 	_ = os.Setenv("FP_HTTP_PORT", "TEST_PORT")
 	_ = os.Setenv("FP_STATIC_DIR", "TEST_STATIC")
 	_ = os.Setenv("FP_TEMPLATE_DIR", "TEST_TEMPLATE")
-	_ = os.Setenv("FP_DATA_DIR", "TEST_DATA")
+	_ = os.Setenv("FP_DATA_FILE", "TEST_FILE")
 
 	config := NewConfig()
 	if config.HttpPort != "TEST_PORT" {
@@ -37,7 +37,7 @@ func TestNewConfigWithEnvs(t *testing.T) {
 	if config.StaticDir != "TEST_STATIC" {
 		t.Fatalf(`FP_STATIC_DIR env variable was not passed to config`)
 	}
-	if config.DataDir != "TEST_DATA" {
-		t.Fatalf(`FP_DATA_DIR env variable was not passed to config`)
+	if config.DataFile != "TEST_FILE" {
+		t.Fatalf(`FP_DATA_FILE env variable was not passed to config`)
 	}
 }

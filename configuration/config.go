@@ -9,19 +9,19 @@ const (
 	envHttpPort    = "FP_HTTP_PORT"
 	envStaticDir   = "FP_STATIC_DIR"
 	envTemplateDir = "FP_TEMPLATE_DIR"
-	envDataDir     = "FP_DATA_DIR"
+	envDataFile    = "FP_DATA_FILE"
 
 	defaultHttpPort    = "8080"
 	defaultStaticDir   = "./html/static"
 	defaultTemplateDir = "./html/tmpl"
-	defaultDataDir     = "./data"
+	defaultDataFile    = "./pkl/data/data.pkl"
 )
 
 type Config struct {
 	HttpPort    string
 	StaticDir   string
 	TemplateDir string
-	DataDir     string
+	DataFile    string
 }
 
 func getEnvOrDefault(key, fallback string) string {
@@ -37,6 +37,6 @@ func NewConfig() *Config {
 		HttpPort:    getEnvOrDefault(envHttpPort, defaultHttpPort),
 		StaticDir:   getEnvOrDefault(envStaticDir, defaultStaticDir),
 		TemplateDir: getEnvOrDefault(envTemplateDir, defaultTemplateDir),
-		DataDir:     getEnvOrDefault(envDataDir, defaultDataDir),
+		DataFile:    getEnvOrDefault(envDataFile, defaultDataFile),
 	}
 }

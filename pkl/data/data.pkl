@@ -1,0 +1,56 @@
+amends "../templates/Data.pkl"
+
+import "services/service1.pkl" as s1
+import "services/service2.pkl" as s2
+import "services/service3.pkl" as s3
+import "services/service4.pkl" as s4
+import "services/service5.pkl" as s5
+import "services/service6.pkl" as s6
+import "services/service7.pkl" as s7
+import "services/service8.pkl" as s8
+import "services/service9.pkl" as s9
+import "services/service10.pkl" as s10
+
+title = "Example System Map"
+env = read?("env:FP_ENV") ?? "Unknown"
+
+groups {
+  new {
+    name = "Group 1: Lorem ipsum dolor sit amet"
+    sort = 10
+    cols = 1
+    services {
+      s1.service
+    }
+  }
+  new {
+    name = "Group 2: Lorem ipsum dolor sit amet"
+    sort = 20
+    cols = 2
+    services {
+      s2.service
+      s3.service
+    }
+  }
+  new {
+    name = "Group 3: Lorem ipsum dolor sit amet"
+    sort = 30
+    cols = 3
+    services {
+      s4.service
+      s5.service
+      s6.service
+    }
+  }
+  new {
+    name = "Group 4: Lorem ipsum dolor sit amet"
+    sort = 40
+    cols = 4
+    services {
+      s7.service
+      s8.service
+      s9.service
+      s10.service
+    }
+  }
+}

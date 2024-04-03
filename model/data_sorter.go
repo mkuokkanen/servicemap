@@ -2,12 +2,13 @@ package model
 
 import (
 	"cmp"
+	"github.com/mkuokkanen/servicemap/pkl/gen"
 	"slices"
 	"strings"
 )
 
-func sortData(data *Data) {
-	slices.SortFunc(data.Groups, func(a, b GroupData) int {
+func sortData(data *gen.Data) {
+	slices.SortFunc(data.Groups, func(a, b *gen.Group) int {
 		return cmp.Compare(a.Sort, b.Sort)
 	})
 	for _, group := range data.Groups {
@@ -15,8 +16,8 @@ func sortData(data *Data) {
 	}
 }
 
-func sortServices(products []ServiceData) {
-	slices.SortFunc(products, func(a, b ServiceData) int {
+func sortServices(products []*gen.Service) {
+	slices.SortFunc(products, func(a, b *gen.Service) int {
 		return cmp.Compare(strings.ToLower(a.Name), strings.ToLower(b.Name))
 	})
 	for _, p := range products {
@@ -24,8 +25,8 @@ func sortServices(products []ServiceData) {
 	}
 }
 
-func sortComponents(components []ComponentData) {
-	slices.SortFunc(components, func(a, b ComponentData) int {
+func sortComponents(components []*gen.Component) {
+	slices.SortFunc(components, func(a, b *gen.Component) int {
 		return cmp.Compare(strings.ToLower(a.Name), strings.ToLower(b.Name))
 	})
 }

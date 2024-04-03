@@ -1,0 +1,12 @@
+import ".../templates/Data.pkl" as d
+
+import ".../component/components.pkl" as c
+
+service = new d.Service {
+  name = "Service 6"
+  description = "Lorem ipsum dolor sit amet."
+  url = "https://example.com"
+  components {
+    c.component11
+  }
+}
